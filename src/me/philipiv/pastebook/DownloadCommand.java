@@ -13,10 +13,10 @@ import org.bukkit.inventory.meta.BookMeta;
 import net.md_5.bungee.api.ChatColor;
 
 public class DownloadCommand implements CommandExecutor {
-	PasteBook plugin;
+	private static PasteBook plugin;
 	
 	public DownloadCommand(PasteBook plugin) {
-		this.plugin = plugin;
+		DownloadCommand.plugin = plugin;
 	}
 
 	@Override

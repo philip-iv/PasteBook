@@ -13,7 +13,7 @@ public class UploadCommand implements CommandExecutor {
 	private static PasteBook plugin;
 	
 	public UploadCommand(PasteBook plugin) {
-		this.plugin = plugin;
+		UploadCommand.plugin = plugin;
 	}
 	
 	@Override
@@ -34,7 +34,13 @@ public class UploadCommand implements CommandExecutor {
 			return true;
 		}
 		
-		plugin.upload((BookMeta) is.getItemMeta());
+		String response = plugin.upload((BookMeta) is.getItemMeta());
+		if (response.equals("")) {
+			sender.sendMessage(ChatColor.RED + "There was a problem uploading your book. Please try again later.");
+		}
+		else {
+			sender.sendMessage(ChatColor.GREEN + "Upload success! Your book can be found at: " + response);
+		}
 		return true;
 	}
 

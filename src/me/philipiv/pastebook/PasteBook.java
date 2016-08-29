@@ -55,7 +55,7 @@ public class PasteBook extends JavaPlugin {
 		getCommand("download").setExecutor(new DownloadCommand(this));
 	}
 	
-	public void upload(BookMeta book) {
+	public String upload(BookMeta book) {
 		HttpPost post = new HttpPost(postUrl);
 		String text = "";
 		text += version.version + "\n";
@@ -74,11 +74,12 @@ public class PasteBook extends JavaPlugin {
 			HttpResponse response = client.execute(post);
 			HttpEntity entity = response.getEntity();
 			if (entity != null) {
-		        getServer().broadcastMessage(EntityUtils.toString(entity));
+		        return EntityUtils.toString(entity);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return "";
 	}
 	
 	public BookMeta download(String id) throws IOException {
