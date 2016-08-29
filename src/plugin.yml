@@ -1,0 +1,24 @@
+main: me.philipiv.pastebook.PasteBook
+author: kingbirdy23
+version: 1.0
+name: PasteBook
+permissions:
+  pastebook.upload:
+    default: true
+    description: Allow uploading a book's contents
+  pastebook.download:
+    default: true
+    description: Allow downloading a pastebin to a book
+commands:
+  pbupload:
+    description: Upload a book to pastebin
+    permission: pastebook.upload
+    aliases:
+      - upload
+      - pbu
+  pbdownload:
+    description: Download a book from pastebin
+    permission: pastebook.download
+    aliases:
+      - download
+      - pbd
