@@ -66,6 +66,7 @@ public class PasteBook extends JavaPlugin {
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		params.add(new BasicNameValuePair("api_dev_key", apiKey));
 		params.add(new BasicNameValuePair("api_option", "paste"));
+		params.add(new BasicNameValuePair("api_paste_expire_date", "N"));
 		params.add(new BasicNameValuePair("api_paste_code", text));
 		params.add(new BasicNameValuePair("api_paste_name", book.getTitle() + " by " + book.getAuthor()));
 		post.setEntity(new UrlEncodedFormEntity(params, Charset.forName("UTF-8")));
